@@ -19,21 +19,6 @@ In this homework assignment, you will be accomplishing three main tasks:
 
 ---
 
-## Conclusion
-
-In conclusion, the Optimized Portpolio provides highest return with less risk.
-
-According to Exponentially Weighted Rolling 21-Day Cumulative Returns of Portfolios vs. S&P 500, Figure E4, the Optimized Portfolio consisting of equally weighted DIY, Tiger Global Management LLC, Algo 1 and S&P 500 portfolios has the highest return, followed by S&P 500, all-inclusive portfolio and the DIY portfolio consisted of euqally weighted CFG, ETN, LHX.
-
-The volatility of the S&P 500 is highest, followed by DIY, all-inclusive and finally the Optimized portfolio, as shown in Figure E5. The least risky is the DIY portfolio consisted of equally weighted CFG, ETN and LHX.
-
-Therefore, the screening strategy of dropping stocks with highest volatility, correlation and negative beta is effective.
-
-
-**File:** [Whale Analysis](Code_and_Resources/whale_analysis.ipynb)
-
----
-
 ### Prepare the Data
 
 First, read and clean several CSV files for analysis. The CSV files include whale portfolio returns, algorithmic trading portfolio returns, and S&P 500 historical prices. 
@@ -143,7 +128,7 @@ To select a portfolio based on data from 12/2014 to 1/2020 Based on annualized s
 
 ### Create Custom Portfolio
 
-**Screener on finviz.com**
+_**Screener on finviz.com**_
 
 Descriptive(6): Market Cap. "Large ($10bln to $20bln)" Target Price "5% Above Price" Divident Yield "Positive (>0%)" Average Volume "Over 100K" IPO Date "More than 5 years ago" Current Volume "Over 100K"
 
@@ -170,6 +155,21 @@ Alternatively,
 2. Download the data as CSV files and calculate the portfolio returns.
 
 3. Add your portfolio returns to the DataFrame with the other portfolios and rerun the analysis. How does your portfolio fair?"
+
+---
+
+## Conclusion
+
+In conclusion, the Optimized Portpolio provides highest return with less risk.
+
+According to Exponentially Weighted Rolling 21-Day Cumulative Returns of Portfolios vs. S&P 500, Figure E4, the Optimized Portfolio consisting of equally weighted DIY, Tiger Global Management LLC, Algo 1 and S&P 500 portfolios has the highest return, followed by S&P 500, all-inclusive portfolio and the DIY portfolio consisted of euqally weighted CFG, ETN, LHX.
+
+The volatility of the S&P 500 is highest, followed by DIY, all-inclusive and finally the Optimized portfolio, as shown in Figure E5. The least risky is the DIY portfolio consisted of equally weighted CFG, ETN and LHX.
+
+Therefore, the screening strategy of dropping stocks with highest volatility, correlation and negative beta is effective.
+
+
+**File:** [Whale Analysis](Code_and_Resources/whale_analysis.ipynb)
 
 ---
 
