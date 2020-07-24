@@ -1,4 +1,5 @@
-# Unit 4 Homework Assignment: A Whale Off the Port(folio)
+# Slippery Whales
+## _A Whale Off the Port(folio)_
 
 ![Portfolio Analysis](Images/portfolio-analysis.png)
 
