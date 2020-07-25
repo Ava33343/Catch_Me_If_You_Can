@@ -156,11 +156,15 @@ According to Figure C6, the 60-day rolling beta measures sensitivity of the stoc
 
 According to Figure C7 and C8, returns of Tiger Global Management LLC and Berkshire Hathaway Inc were more volatile, in other words, riskier than the market index, S&P 500.
 
+Correlation of portfolio returns:
+
 ![Corr](Images/Corr.png)
+
+Correlation of exponentially weighted returns:
 
 ![Corr_ewm](Images/Corr_ewm.png)
 
-Based on heatmap and correlation table above, returns of portfolios and S&P 500 are highly correlated. Algo 2 exhibit maximum correlation with S&P 500, namely 99.6% of its returns can be explained by that of S&P 500 . On the other hand, 90.6% of Paulson & Co. Inc's daily prices can be explained by S&P 500. It is the least correlated with S&P 500.
+Based on heatmap and correlation tables above, returns of portfolios and S&P 500 are highly correlated. Algo 2 exhibit maximum correlation with S&P 500, namely 99.6% of its returns can be explained by that of S&P 500 . On the other hand, 90.6% of Paulson & Co. Inc's daily prices can be explained by S&P 500. It is the least correlated with S&P 500.
 
 ![C9](Images/C9.png)
 
