@@ -1,7 +1,28 @@
 # Catch Me If You Can
 ## _A Whale Off the Port(folio)_
 
-![Portfolio Analysis](Images/portfolio-analysis.png)
+### How to screen for stocks in a DIY Portfolio?
+
+_**Screener on finviz.com**_
+
+Descriptive(6): Market Cap. "Large ($10bln to $20bln)" Target Price "5% Above Price" Divident Yield "Positive (>0%)" Average Volume "Over 100K" IPO Date "More than 5 years ago" Current Volume "Over 100K"
+
+Fundamental(4): PE "Under 30", Debt/Equity "Under 1", Operating Margin "Over 5%", Net Profit Margin "Positive (>0%);
+
+Technical(7): 20-Day Simple Moving Average "Price above SMA20" Beta "Under 1.5" 50-Day Simple Moving Average "SMA50 below SMA20" 200-Day Simple Moving Average "SMA200 below SMA50" 52-Week High/Low "New High" RSI(14) "Not Oversold (>50)" Pattern "TL Resistance"
+
+Narrowed down to seven stocks: AJG (Financial), CFG (Financial), CI (Healthcare), ETN (Industrial Goods), ICE (Financial), LHX (Technology), RCL (Services)
+
+Looking at charts Out of the three financial stocks: AJG, CFG and ICE, CFG stays in the portfolio for higher trading volume supporting the price break out. Wave theory suggests that a peak can be formed following breaking out at $40.
+
+Stocks remaining in the portfolio are: CFG (Financial), CI (Healthcare), ETN (Industrial Goods), LHX (Technology), RCL (Services)
+
+Due to limit in resources and management challenges, considering volume, sectors, diversification and season, three stocks stays in the portfolio: CFG, ETN, LHX.
+
+![D1](Images/D1.png)
+![D2](Images/D2.png)
+
+_Note: The screening was performed based on historical data up to February 2020._
 
 ## Background
 
@@ -11,7 +32,7 @@ You just learned these quantitative analysis techniques with Python and Pandas, 
 
 A tool (an analysis notebook) is created to analyze and visualize the major metrics of the portfolios across all of these areas, and determine which portfolio outperformed the others. You will be given the historical daily returns of several portfolios: some from the firm's algorithmic portfolios, some that represent the portfolios of famous "whale" investors like Warren Buffett, and some from the big hedge and mutual funds. You will then use this analysis to create a custom portfolio of stocks and compare its performance to that of the other portfolios, as well as the larger market (S&P 500).
 
-In this homework assignment, you will be accomplishing three main tasks:
+Three main tasks are performed:
 
 1. [Read in and Wrangle Returns Data](#Prepare-the-Data)
 2. [Determine Success of Each Portfolio](#Conduct-Quantitative-Analysis)
@@ -33,7 +54,8 @@ First, read and clean several CSV files for analysis. The CSV files include whal
 
 5. Join `Whale Returns`, `Algorithmic Returns`, and the `S&P 500 Returns` into a single DataFrame with columns for each portfolio's returns.
 
-  ![returns-dataframe.png](Images/returns-dataframe.png)
+![Tab1](Images/Tab1.png)
+
 
 ### Conduct Quantitative Analysis
 
@@ -41,7 +63,11 @@ First, read and clean several CSV files for analysis. The CSV files include whal
 
 Based on Figure A1, Tiger Global Management LLC and Berkshire Hathaway Inc exhibited most volatile behavior in daily returns. Comparable volatilities to S&P 500 are provided by Paulson & Co. Inc., Algo 1, Algo 2 and Soros Fund Management LLC. The daily returns of all portfolios are positively correlated.
 
+![A1](Images/A1.png)
+
 Examples of exceptions are Tiger Global Management LLC's sudden rise in daily returns during the first quarter of 2017 and its sharp dip towards the end of the first quarter in 2019.
+
+![A2](Images/A2.png)
 
 Based on Figure A2, the plot for cumulative daily returns, Paulson & Co. Inc. from Whale Portfolio had the lowest cumulative return. The highest cumulative return was gained by Algo 2 from Algo Portfolio. S&P 500 ranks the third highest return by the end of April 2019.
 
@@ -50,6 +76,9 @@ Algo 1 and Berkshire Hathaway Inc outperforms S&P 500 by the end of 2019. The be
 Algo 2 strategy returned slightly lower than that of S&P 500 thoughout the four year window, with the gap widening starting from the second half of 2018. It is followed by Soros Fund Management LLC and Tiger Global Management LLC. Cumulative returns gaps increased for both following a dip prior to the start of 2019. Paulson & Co. Inc. demonstrated decreasing cumulative returns during the entire time frame. 
 
 When made of equally weighted investment components of their kind, the Algo Portfolio is our top choice.
+![A3](Images/A3.png)
+
+![A4](Images/A4.png)
 
 From Figure A3 and A4 above for daily and cumulative returns for weighted portfolios vs. S&P 500, Algo Portfolio consisted of equally weighted Algo 1 and Algo 2 strategies outperforms the market indicated by cumulative returns of S&P 500 portfolio stocks. The portfolio of whale investors and management funds, however, returned close to the market up until the last quarter of 2016. The gap in returns widened continuously into 2019.
 
@@ -65,17 +94,27 @@ To start off, box plots for each portfolio are compared to others in the same do
 
 Tiger Gloabl Management LLC manifested the greatest risk in its portfolios, shown by the spread of daily returns.
 
+![B1](Images/B1.png)
+
 Figure B1 shows the distribution in daily returns of strategies adopted by whale investors and their managed funds, in the form of box plots.
 
 Paulson & Co. Inc. exhibit least spread in its daily returns, followed by Soros Fund Management LLC. Berkshire Hathaway Inc ranked the second most volatile of the four.
 
+![B2](Images/B2.png)
+
 In Figure B2, we can conclude that the middle 50% of the daily returns for Algo 2 strategy is more spread out. To the contrary, the daily returns for Algo 1 is more widely spread out compared to provided by Algo 2 strategy.
+
+![B3](Images/B3.png)
 
 Figure B3 tells us that the range of middle half of market daily returns is slighly less than 0.01, based on S&P 500.
 
 The more spreadout the daily returns, the riskier the portfolio.
 
+![B4](Images/B4.png)
+
 Based on the box plots in Figure B5, the Inter-quartile ranges (IQR = Q3-Q1) is the least (least volatile) for PAULSON & CO. INC., Algo 1, S&P 500, and SOROS FUND MANAGEMENT LLC. It suggests the middle half of the daily returns for those management strategies are less spreadout, i.e. less risky.
+
+![B5](Images/B5.png)
 
 Meanwhile, the spread of daily returns is the most closely packed for PAULSON & CO. INC., suggesting that it is the least riskly out of the seven portfolios. Nevertheless, this alone does not guarantee a safer bet as rewards are not taken into account yet. We will look into details of sharpe ratios in later sections.
 
@@ -93,60 +132,92 @@ Higher standard deviation suggest greater variation in daily returns. It is asso
 
 Plots on rolling 21-day standard deviations of the market and portfolios in Figure C1 and C2 suggests higher-than-market risks for Tiger Global Management LLC and Berkshire Hathaway Inc. The risk for Algo 1 strategy was seeing higher than the rest more often starting from the fourth quarter of 2018.
 
+![C1](Images/C1.png)
+
+![C2](Images/C2.png)
+
 Based on the correlation chart and heatmap, all portfolios are positively correlated with S&P 500. Algo 2 portfolio most closely mimic the movement of S&P 500, given its 0.859 correlation. It is followed by Soros Fund Management LLC and Berkshire Hathaway Inc. with S&P 500 correlations of 0.838 and 0.751 respectively. On the other hand, Algo 1 least tracks S&P 500, provided that it has correlation of 0.279. Paulson & Co. Inc. and Tiger Global Management LLC both have correlations greater than 0.6 with S&P 500 Index.
+
+![C3](Images/C3.png)
+
+![C4](Images/C4.png)
 
 In Figure C4. above, Algo 2 is sensitive to movements of S&P 500 as its beta is wavering around 1 that is the beta for S&P 500. It is moving in the same direction with S&P movements. On maximum, it reacts 1.8 times to S&P 500 movement. To the contrary, it could move as litte as between a half to two thirds of the size of movements in S&P 500. However, on average, it does not appear to be overly or less responsive to movements of S&P 500 in the given time span.
 
+![C5](Images/C5.png)
+
 According to Figure C6, the 60-day rolling beta measures sensitivity of the stock price Berkshire Hathaway Inc. relative to movements of S&P 500 market index. It moves in concert with S&_ 500 in the same directions and approximately the same average sale in sensitivity. As show in the graph, the two-month rolling beta ranges from as low as 0.6 around March 2017 to its peak near 1.9 close to October 2018. In the chart, it started around 0.7 from July 2015, followed by an increase to 1.4 in April 2016. It peaked close to 1.8 twice in July and December 2017, preceded by gradual declines, as previously mentioned, to its minimum towards the end of 2018. The market sensitivity falls close to 0.8 in July 2018. Then, it rose by 1 to its peak, i.e. most sensitive moment at the end of 2018. A gradual decline by 0.5 was seen in the first quarter of 2019.
+
+![C6](Images/C6.png)
+
+![C7](Images/C7.png)
+
+![C8](Images/C8.png)
 
 According to Figure C7 and C8, returns of Tiger Global Management LLC and Berkshire Hathaway Inc were more volatile, in other words, riskier than the market index, S&P 500.
 
+![Corr](Images/Corr.png)
+
+![Corr_ewm](Images/Corr_ewm.png)
+
 Based on heatmap and correlation table above, returns of portfolios and S&P 500 are highly correlated. Algo 2 exhibit maximum correlation with S&P 500, namely 99.6% of its returns can be explained by that of S&P 500 . On the other hand, 90.6% of Paulson & Co. Inc's daily prices can be explained by S&P 500. It is the least correlated with S&P 500.
+
+![C9](Images/C9.png)
 
 Figure C9 shows that Algo 2 portfolio has nearly the same sensitivity to price movement of S&P 500. It is because its exponentially weighted beta is close to 1, the index base. Meanwhile, its average appears to be below 1, indicating that Algo 2 is relatively less sensitive to price movements of S&P 500.
 
+![C10](Images/C10.png)
+
 From the overlaying chart Figure C10, above, we can see that the both EMAs and SMAs indicate that Algo 2 price movements closely traces those of S&P 500. The EMAs have a higher correlation than SMAs as more closing prices agrees with each other based on movement in the same direction and similar magnitude. The range of 21-day EMAs exceed that of the SMAs over the same period of time because it weighs recent price movements more heavily. In comparison, SMAs averages out price movement over the specified 21 days.
+
+![C11](Images/C11.png)
+
+![C12](Images/C12.png)
 
 Exponentially weighted daily returns and standard deviations, shown in Figure C11 and C12 above, reinforce our conclusion that the portfolios of Tiger Global Management LLC and Berkshire Hathaway are riskier than S&P 500. In addition, Soros Fund Management LLC also adopts a riskier portfolio, compared to the market S&P 500.
 
 The correlation table and heatmap indicate a higher correlation between portfolio returns of Berkshire Hathaway Inc and Algo 1, Algo2, and S&P 500. It has a relatively lower correlation with Soros Fund Management LLC and Paulson & Co. Inc. The correlation between 60-day rolling portfolio return of Berkshire Hathaway and S&P 500 is 0.974. It shows tha 97.4% of the movement in exponentially weighted 60-day rolling returns can be explained by returns movement of S&P 500 during the same time period. In comparison, according to 60-day rolling SMA portfolio returns, only 0.751, i.e. 75.1% of the daily returns can be explained by movement in S&P 500 on the same rolling basis. 
 
+![C13](Images/C13.png)
+
 Based on exponentially weighted 60-day rolling beta in Figure C13, Berkshire Hathaway Inc. has its stock price moving slightly more sentivite compared to movement in S&P 500, in the same direction. On average, it is 25% more sensitive to market movements captured by S&P 500."
+
+![C14](Images/C14.png)
 
 From the chart above, Figure C14, we can see that the 60-day exponential moving averages of Berkshire Hathaway Inc react in greater magnitude and same direction compared to returns of S&P 500, indicating a beta greater than 1. As suggested by 60-day simple moving averages of Berkshire Hathaway Inc, the company price move in the same direction as S&P 500. However, it demonstrate a smoother sensitivity because price changes further back were weighed the same as those that are closer to date, diluting the price sensitivity to movements of S&P 500.
 
 ### Plot Sharpe Ratios
 
-According to the bar charts in Figure C15, Algo 1 strategy outperform returns of the market index, S&P 500, and the whales. It is becuase its sharpe ratio is 1.25, the highest amongst all seven portfolios, meaning that it gives the greatest return per unit of risk. Algo 2 strategy falls below returns of S&P 500 and Berkshire Hathaway Inc by 0.15 and 0.12 in return per unit of risk, respectively. It still beats Soros Fund Management LLC, Tiger Global Management LLC and Paulson & Co. Inc. The last couple returns negative annualized sharpe ratios.
+According to the bar charts in Figure C15 below, Algo 1 strategy outperform returns of the market index, S&P 500, and the whales. It is becuase its sharpe ratio is 1.25, the highest amongst all seven portfolios, meaning that it gives the greatest return per unit of risk. Algo 2 strategy falls below returns of S&P 500 and Berkshire Hathaway Inc by 0.15 and 0.12 in return per unit of risk, respectively. It still beats Soros Fund Management LLC, Tiger Global Management LLC and Paulson & Co. Inc. The last couple returns negative annualized sharpe ratios.
 
+![C15](Images/C15.png)
 
 ### Comparison with 21-Day Exponential Moving Averages
 
+![D5](Images/D5.png)
+
 On the same chart, the exponential moving averages (EMA) appear more volatile than simple moving averages. Illustrated in Figure D7, it is because exponents were used in calculation and magnifies changes in returns. We can see that the 21-day rolling returns of DIY portfolio act in concert with those of S&P 500, demonstrated both by SMAs and EMAs. While EMAs emphasize more recent returns, it draws rolling correlation between DIY portfolio and S&P500 closer compared to those represented by SMAs. The heatmap on correlation between EMAs appears to have a paler color compared to the SMA correlation heatmap, suggesting higher correlation between portfolio returns. 
+
+![D7](Images/D7.png)
 
 To select a portfolio based on data from 12/2014 to 1/2020 Based on annualized standard deviation, Berkshire Hathaway Inc. needs to be dropped as it was the riskiest and most volatile. Algo 2 and Soros Fund Management LLC have high correlations. Thus, they need to be excluded from the portfolio. Paulso & Co. Inc. has a negative sharpe ratio and needs to be excluded. 
 
-### Create Custom Portfolio
+### Custimize Your Portfolio!
 
-_**Screener on finviz.com**_
+Beta of the DIY portfolio consisted of CFG, ETN, LHX that emerged from the screening process described at the beginnning:
 
-Descriptive(6): Market Cap. "Large ($10bln to $20bln)" Target Price "5% Above Price" Divident Yield "Positive (>0%)" Average Volume "Over 100K" IPO Date "More than 5 years ago" Current Volume "Over 100K"
+![D4](Images/D4.png)
 
-Fundamental(4): PE "Under 30", Debt/Equity "Under 1", Operating Margin "Over 5%", Net Profit Margin "Positive (>0%);
+Exponentially weighted Beta of the DIY portfolio vs. S&P 500 Returns:
+![D6](Images/D6.png)
 
-Technical(7): 20-Day Simple Moving Average "Price above SMA20" Beta "Under 1.5" 50-Day Simple Moving Average "SMA50 below SMA20" 200-Day Simple Moving Average "SMA200 below SMA50" 52-Week High/Low "New High" RSI(14) "Not Oversold (>50)" Pattern "TL Resistance"
+A comparison of portfolio volatilities:
 
-Narrowed down to seven stocks: AJG (Financial), CFG (Financial), CI (Healthcare), ETN (Industrial Goods), ICE (Financial), LHX (Technology), RCL (Services)
-
-Looking at charts Out of the three financial stocks: AJG, CFG and ICE, CFG stays in the portfolio for higher trading volume supporting the price break out. Wave theory suggests that a peak can be formed following breaking out at $40.
-
-Stocks remaining in the portfolio are: CFG (Financial), CI (Healthcare), ETN (Industrial Goods), LHX (Technology), RCL (Services)
-
-Due to limit in resources and management challenges, considering volume, sectors, diversification and season, three stocks stays in the portfolio: CFG, ETN, LHX.
+![D3](Images/D3.png)
 
 ---
 
-Alternatively,
+_**Next**_
 
 "Harold is ecstatic that you were able to help him prove that the algorithmic trading portfolios are doing so well compared to the market and whales portfolios. However, now you are wondering whether you can choose your own portfolio that performs just as well as the algorithmic portfolios. Investigate by doing the following:
 
