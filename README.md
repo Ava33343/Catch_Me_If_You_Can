@@ -196,7 +196,7 @@ According to the bar charts in Figure C15 below, Algo 1 strategy outperform retu
 
 ![C15](Images/C15.png)
 
-### Comparison with 21-Day Exponential Moving Averages
+### Compare to 21-Day Exponentially Weighted Sharpe Ratio
 
 ![D5](Images/D5.png)
 
